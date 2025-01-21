@@ -5,20 +5,28 @@ window = tk.Tk()
 window.title("Library-App")
 
 # title - label and entry
-title_label = tk.Label(window, text="Title")
-title_label.grid(row=0, column=0)
-title_entry = tk.Entry(window)
-title_entry.grid(row=0, column=1)
+label_book_title = tk.Label(window, text="Title:")
+label_book_title.grid(row=0, column=0)
+entry_book_title = tk.Entry(window)
+entry_book_title.grid(row=0, column=1)
 
 # author - label and entry
-author_label = tk.Label(window, text="Author")
-author_label.grid(row=1, column=0)
-author_entry = tk.Entry(window)
-author_entry.grid(row=1, column=1)
+label_author_name = tk.Label(window, text="Author:")
+label_author_name.grid(row=1, column=0)
+entry_author_name = tk.Entry(window)
+entry_author_name.grid(row=1, column=1)
 
 # buttons
+button_add = tk.Button(window, text="Add Book")
+button_add.grid(row=2, column=0)
+button_remove = tk.Button(window, text="Remove Book")
+button_remove.grid(row=2, column=1)
 
 # table to display the list of books
+book_table = ttk.Treeview(window, columns=("Title", "Author"), show="headings")
+book_table.heading(column="Title", text="Title")
+book_table.heading(column="Author", text="Author")
+book_table.grid(row=3, column=0, columnspan=2)
 
 
 window.mainloop()

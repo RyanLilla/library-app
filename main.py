@@ -4,7 +4,7 @@ from tkinter import messagebox, ttk
 window = tk.Tk()
 window.title("Library-App")
 
-# title - label and entry
+# book title - label and entry
 label_book_title = tk.Label(window, text="Title:")
 label_book_title.grid(row=0, column=0)
 entry_book_title = tk.Entry(window)

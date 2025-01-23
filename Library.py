@@ -25,6 +25,7 @@ class Library:
         """
         
         self.books = [b for b in self.books if b.title != book.title or b.author != book.author]
+        self.save_books_to_file()
     
     def list_books(self):
         """

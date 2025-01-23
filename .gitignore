@@ -51,3 +51,4 @@ venv.bak/
 
 # Local configuration
 *.local
+library.txt

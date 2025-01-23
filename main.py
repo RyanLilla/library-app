@@ -71,9 +71,9 @@ entry_author_name = tk.Entry(window)
 entry_author_name.grid(row=1, column=1)
 
 # buttons
-button_add = tk.Button(window, text="Add Book")
+button_add = tk.Button(window, text="Add Book", command=add_book)
 button_add.grid(row=2, column=0)
-button_remove = tk.Button(window, text="Remove Book")
+button_remove = tk.Button(window, text="Remove Book", command=remove_book)
 button_remove.grid(row=2, column=1)
 
 # table to display the list of books

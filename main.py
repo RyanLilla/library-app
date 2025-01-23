@@ -23,7 +23,16 @@ def add_book():
         messagebox.showerror("Error", "Please enter a title and author.")
 
 def remove_book():
-    pass
+    selected_books = book_table.selection()
+    if selected_books:
+        for selected in selected_books:
+            book = (book_table.item(selected, "values")[0], book_table.item(selected, "values")[1])
+            library.remove_book(Book(book[0], book[1]))
+            book_table.delete(selected)
+        update_book_table()
+    else:
+        messagebox.showerror("Error", "Please select at least one book to remove.")
+            
 
 def update_book_table():
     pass

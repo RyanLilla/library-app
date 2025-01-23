@@ -1,6 +1,37 @@
 import tkinter as tk
 from tkinter import messagebox, ttk
 
+from library import Library
+from book import Book
+
+
+def add_book():
+    title = entry_book_title.get()
+    author = entry_author_name.get()
+    
+    if title and author:
+        book = Book(title, author)
+        library.add_book(book)
+        
+        messagebox.showinfo("Success", "Book add to library.")
+        
+        entry_book_title.delete(0, tk.END)
+        entry_author_name.delete(0, tk.END)
+        
+        update_book_table()
+    else:
+        messagebox.showerror("Error", "Please enter a title and author.")
+
+def remove_book():
+    pass
+
+def update_book_table():
+    pass
+
+
+library = Library()
+library.load_books_from_file()
+
 window = tk.Tk()
 window.title("Library-App")
 
@@ -28,5 +59,6 @@ book_table.heading(column="Title", text="Title")
 book_table.heading(column="Author", text="Author")
 book_table.grid(row=3, column=0, columnspan=2)
 
+update_book_table()
 
 window.mainloop()

@@ -6,6 +6,14 @@ from book import Book
 
 
 def add_book():
+    """
+    Adds a new book to the library.
+
+    Retrieves the title and author from the input fields, creates a new Book object,
+    adds it to the library, and updates the book table. Displays a success message
+    if the book is added successfully, otherwise shows an error message.
+    """
+    
     title = entry_book_title.get()
     author = entry_author_name.get()
     
@@ -23,6 +31,14 @@ def add_book():
         messagebox.showerror("Error", "Please enter a title and author.")
 
 def remove_book():
+    """
+    Removes selected books from the library.
+
+    Retrieves the selected books from the book table, removes each book from the library,
+    deletes the book from the table, and updates the book table. Displays an error message
+    if no books are selected.
+    """
+    
     selected_books = book_table.selection()
     if selected_books:
         for selected in selected_books:
@@ -35,6 +51,13 @@ def remove_book():
             
 
 def update_book_table():
+    """
+    Updates the book table with the current list of books in the library.
+
+    Clears the existing entries in the book table and repopulates it with the
+    updated list of books from the library.
+    """
+    
     # Get the current books in the table
     current_books = set((book_table.item(item, "values")[0], book_table.item(item, "values")[1]) for item in book_table.get_children())
     

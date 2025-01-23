@@ -35,7 +35,21 @@ def remove_book():
             
 
 def update_book_table():
-    pass
+    # Get the current books in the table
+    current_books = set((book_table.item(item, "values")[0], book_table.item(item, "values")[1]) for item in book_table.get_children())
+    
+    # Get the books in the library
+    library_books = set((book.title, book.author) for book in library.list_books())
+    
+    # Remove the books that are no longer in the library
+    books_to_remove = current_books - library_books
+    books_to_add = library_books - current_books
+    for book in books_to_remove:
+        book_table.delete(book)
+    
+    # Add the new books to the table
+    for book in books_to_add:
+        book_table.insert("", "end", values=book)
 
 
 library = Library()

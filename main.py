@@ -80,30 +80,40 @@ library.load_books_from_file()
 
 window = tk.Tk()
 window.title("Library-App")
+window.geometry("400x300")  # Set initial size
+window.resizable(True, True)  # Allow resizing
+
+# Configure grid weights to make elements resize with the window
+window.grid_rowconfigure(0, weight=1)
+window.grid_rowconfigure(1, weight=1)
+window.grid_rowconfigure(2, weight=1)
+window.grid_rowconfigure(3, weight=1)
+window.grid_columnconfigure(0, weight=1)
+window.grid_columnconfigure(1, weight=1)
 
 # book title - label and entry
 label_book_title = tk.Label(window, text="Title:")
-label_book_title.grid(row=0, column=0)
+label_book_title.grid(row=0, column=0, sticky="nsew")
 entry_book_title = tk.Entry(window)
-entry_book_title.grid(row=0, column=1)
+entry_book_title.grid(row=0, column=1, sticky="nsew")
 
 # author - label and entry
 label_author_name = tk.Label(window, text="Author:")
-label_author_name.grid(row=1, column=0)
+label_author_name.grid(row=1, column=0, sticky="nsew")
 entry_author_name = tk.Entry(window)
-entry_author_name.grid(row=1, column=1)
+entry_author_name.grid(row=1, column=1, sticky="nsew")
 
 # buttons
 button_add = tk.Button(window, text="Add Book", command=add_book)
-button_add.grid(row=2, column=0)
+button_add.grid(row=2, column=0, sticky="nsew")
 button_remove = tk.Button(window, text="Remove Book", command=remove_book)
-button_remove.grid(row=2, column=1)
+button_remove.grid(row=2, column=1, sticky="nsew")
 
 # table to display the list of books
 book_table = ttk.Treeview(window, columns=("Title", "Author"), show="headings")
 book_table.heading(column="Title", text="Title")
 book_table.heading(column="Author", text="Author")
-book_table.grid(row=3, column=0, columnspan=2)
+book_table.grid(row=3, column=0, columnspan=2, sticky="nsew")
 
 update_book_table()
 
